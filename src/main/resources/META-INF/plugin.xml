@@ -1,0 +1,21 @@
+<idea-plugin>
+    <id>org.wikimedia.phpstorm.inheritdoc.constructor.suppressor</id>
+    <name>PHP InheritDoc Constructor Suppressor</name>
+    <vendor>Wikimedia</vendor>
+
+    <description><![CDATA[
+        Suppresses PhpParamsInspection false positives on constructor calls when the target
+        constructor uses @inheritDoc.
+    ]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.jetbrains.php</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <lang.inspectionSuppressor
+            language="PHP"
+            implementationClass="org.wikimedia.phpstorm.inheritdoc.InheritDocConstructorSuppressor"/>
+        <daemon.highlightInfoFilter
+            implementation="org.wikimedia.phpstorm.inheritdoc.InheritDocConstructorHighlightInfoFilter"/>
+    </extensions>
+</idea-plugin>
